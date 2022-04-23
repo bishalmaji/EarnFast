@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "979905875654",
+    "project_id": "earn-survey",
+    "storage_bucket": "earn-survey.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979905875654:android:647620214ed20d345b11c7",
+        "android_client_info": {
+          "package_name": "com.earnfast.earnfast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979905875654-232ritgsbbqfdmlgudq6t5t8t6r4bhnl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFbReAaywXI6YSV3DcQerNWStap5YecHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979905875654-232ritgsbbqfdmlgudq6t5t8t6r4bhnl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
