@@ -29,6 +29,8 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+
 }
 
 dependencies {
@@ -56,8 +58,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
     implementation 'com.google.firebase:firebase-storage:20.0.1'
-    implementation 'com.google.android.gms:play-services-ads:20.6.0'
-    implementation project(':nativetemplates')
-
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:2.1.0'
 }
 

@@ -4,17 +4,18 @@ public class QuestionModel {
     public QuestionModel(){
 
     }
-    public QuestionModel(String a, String question, String b, String c, String d, Long type) {
+    public QuestionModel(String a, String question, String b, String c, String d, Long type,String answer) {
         this.a = a;
         this.question = question;
         this.b = b;
         this.c = c;
         this.d = d;
         this.type = type;
+        this.answer=answer;
     }
-
-    private String a;
     private String question;
+    private String answer;
+    private String a;
     private String b;
     private String c;
     private String d;
@@ -68,5 +69,13 @@ public class QuestionModel {
 
     public void setQuestion(String question) {
         this.question = question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }

@@ -1,6 +1,7 @@
 package com.earnfast.earnfast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,8 +37,11 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -154,23 +158,21 @@ public class Otp extends AppCompatActivity {
 
                             FirebaseUser user = task.getResult().getUser();
                             Map<String,Object> data=new HashMap<String,Object>();
+                            int randomNo=gen();
                             data.put("name",name);
                             data.put("refer",refer);
                             data.put("phone",phone);
-                            data.put("total","50");
-                            data.put("coin1","50");
-                            data.put("coin2","0");
-                            data.put("stat",true);
-                            data.put("quizSolved", Arrays.asList("qid"));
+                            data.put("totalRefer",0);
+                            data.put("myCode",randomNo);
+                            data.put("courses",Arrays.asList("abc"));
                             SharedPreferences sp=getSharedPreferences("user", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor=sp.edit();
                             editor.putString("name",name);
                             editor.putString("refer",refer);
                             editor.putString("phone",phone);
-                            editor.putString("total","50");
-                            editor.putString("coin1","50");
-                            editor.putString("coin2","0");
-                            editor.putBoolean("stat",true);
+                            editor.putInt("totalRefer",0);
+                            data.put("myCode",randomNo);
+
                             editor.apply();
                             assert user != null;
                             FirebaseFirestore.getInstance().collection("user").document(user.getUid()).set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -194,7 +196,10 @@ public class Otp extends AppCompatActivity {
                     }
                 });
     }
-
+    public int gen() {
+        Random r = new Random( System.currentTimeMillis() );
+        return 10000 + r.nextInt(20000);
+    }
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder=new AlertDialog.Builder(Otp.this);

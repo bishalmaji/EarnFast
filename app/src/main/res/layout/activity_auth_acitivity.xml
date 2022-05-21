@@ -23,7 +23,7 @@
         android:layout_marginTop="8dp"
         android:alpha="0.7"
         android:fontFamily="@font/roboto"
-        android:text="Sign up for free to start earning"
+        android:text="Sign up to start your learning journey"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

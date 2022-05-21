@@ -1,62 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/c3p"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:progress="0"
-        app:indicatorColor="?attr/colorPrimary"
-        app:indicatorSize="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView51"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView51"
-        app:trackColor="#F4F4F4"
-        app:trackCornerRadius="8dp"
-        app:trackThickness="8dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_uper_curve"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView51">
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/textView51"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Question"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/c3qno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView51"
-        app:layout_constraintStart_toEndOf="@+id/textView51"
-        app:layout_constraintTop_toTopOf="@+id/textView51" />
 
     <TextView
         android:id="@+id/c3q"
@@ -67,7 +29,7 @@
         android:gravity="center"
         android:padding="5dp"
         android:text="TextView"
-        android:textColor="@color/white"
+        android:textColor="#455A64"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout6" />
@@ -112,7 +74,7 @@
         android:background="?attr/colorPrimary"
         android:padding="5dp"
         android:text="TextView"
-        android:textColor="@color/white"
+        android:textColor="#455A64"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/c3q"
         app:layout_constraintTop_toBottomOf="@+id/c3q" />
@@ -125,7 +87,7 @@
         android:background="?attr/colorPrimary"
         android:padding="5dp"
         android:text="TextView"
-        android:textColor="@color/white"
+        android:textColor="#455A64"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/c3qb"
         app:layout_constraintTop_toBottomOf="@+id/c3qb" />

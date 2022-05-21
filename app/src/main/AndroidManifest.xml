@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.earnfast.earnfast">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,13 +14,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EarnFast">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity
+            android:name=".cources.PaidCourseVideo"
+            android:exported="false" />
+        <activity
+            android:name=".cources.DailyQuiz"
+            android:exported="false" />
+        <activity
+            android:name=".cources.DemoClasses"
+            android:exported="false" />
+        <activity
+            android:name=".cources.FreeCource"
+            android:exported="false" />
+        <activity
+            android:name=".cources.PaidCource"
+            android:exported="false" />
         <activity
             android:name=".Payment"
             android:exported="false" />
         <activity
-            android:name=".GameActivity"
+            android:name=".cources.GameActivity"
             android:exported="false"
-            android:theme="@style/TransparentStatus"/>
+            android:theme="@style/TransparentStatus" />
         <activity
             android:name=".Otp"
             android:exported="false" />
@@ -41,11 +59,10 @@
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:resource="@array/preloaded_fonts" /> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8582413713872817~8725776447"/>
+            android:value="ca-app-pub-8582413713872817~8725776447" />
     </application>
 
 </manifest>

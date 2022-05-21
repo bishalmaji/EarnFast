@@ -2,6 +2,7 @@ package com.earnfast.earnfast.adapters;
 
 
         import android.content.Context;
+        import android.graphics.Color;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -24,8 +25,8 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private static final int TYPE_ONE =1 ;
     private static final int TYPE_TWO = 2;
     private static final int TYPE_THREE = 3;
-    private List<QuestionModel> itemList;
-    private Context context;
+    private final List<QuestionModel> itemList;
+    private final Context context;
     private ItemClickListener itemClickListener;
     // Constructor of the class
     public QuestionAdapter(List<QuestionModel> itemList,Context context) {
@@ -39,7 +40,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return itemList == null ? 0 : itemList.size();
     }
     public interface ItemClickListener  {
-        void onItemClick(int position,boolean stat);
+        void onItemClick(int position,boolean stat,boolean ans);
     }
 
     // determine which layout to use for the row
@@ -102,8 +103,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         itemClickListener=listener;
   }
     private void initLayoutThree(ViewHolderThree holder, int listPosition) {
-        holder.progressBar3.setProgress((listPosition)*10);
-        holder.c3qno.setText(String.valueOf(listPosition+1));
+
         String question=itemList.get(listPosition).getQuestion();
         String[] arr=question.split("@",3);
         holder.tfquestion.setText(arr[0]);
@@ -111,31 +111,37 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         holder.c3qc.setText(arr[2]);
         holder.tfa.setText(itemList.get(listPosition).getA());
         holder.tfb.setText(itemList.get(listPosition).getB());
+        String ans=itemList.get(listPosition).getAnswer();
         holder.tfa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (itemClickListener!=null)
-                    itemClickListener.onItemClick(listPosition,true);
-                if (listPosition==itemList.size()-1){
-                    holder.progressBar3.setProgress(100);
-                }
+                if (itemClickListener!=null){
+                    if(ans.equals("a")) {holder.tfa.setBackgroundColor(Color.GREEN);
+                        itemClickListener.onItemClick(listPosition,true,true);}
+                    else {
+                        holder.tfa.setBackgroundColor(Color.RED);
+                        itemClickListener.onItemClick(listPosition,true,false);
+                    }}
+
             }
         });
         holder.tfb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (itemClickListener!=null)
-                    itemClickListener.onItemClick(listPosition,true);
-                if (listPosition==itemList.size()-1){
-                    holder.progressBar3.setProgress(100);
-                }
+                if (itemClickListener!=null){
+                    if(ans.equals("b")) {holder.tfb.setBackgroundColor(Color.GREEN);
+                        itemClickListener.onItemClick(listPosition,true,true);}
+                    else {
+                        holder.tfb.setBackgroundColor(Color.RED);
+                        itemClickListener.onItemClick(listPosition,true,false);
+                    }}
+
             }
         });
     }
 
     private void initLayoutTwo(ViewHolderTwo holder, int listPosition) {
-        holder.progressBar2.setProgress((listPosition)*10);
-        holder.c2qno.setText(String.valueOf(listPosition+1));
+
         String question=itemList.get(listPosition).getQuestion();
         String[] arr=question.split("@",3);
         holder.iquestion.setText(arr[0]);
@@ -149,52 +155,66 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ).getC()).into(holder.ioc);
         Glide.with(context).load(itemList.get(listPosition
         ).getD()).into(holder.iod);
+        String ans=itemList.get(listPosition).getAnswer();
         holder.ioa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (itemClickListener!=null)
-                    itemClickListener.onItemClick(listPosition,true);
-                if (listPosition==itemList.size()-1){
-                    holder.progressBar2.setProgress(100);
+                if (itemClickListener!=null){
+                    if(ans.equals("a")) {holder.ioa.setBackgroundColor(Color.GREEN);
+                        itemClickListener.onItemClick(listPosition,true,true);}
+                    else {
+                        holder.ioa.setBackgroundColor(Color.RED);
+                        itemClickListener.onItemClick(listPosition,true,false);
+                    }
                 }
+
             }
         });
         holder.iob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (itemClickListener!=null)
-                    itemClickListener.onItemClick(listPosition,true);
-                if (listPosition==itemList.size()-1){
-                    holder.progressBar2.setProgress(100);
-                }
+                if (itemClickListener!=null){
+                    if(ans.equals("b")) {holder.iob.setBackgroundColor(Color.GREEN);
+                        itemClickListener.onItemClick(listPosition,true,true);}
+                    else {
+                        holder.iob.setBackgroundColor(Color.RED);
+                        itemClickListener.onItemClick(listPosition,true,false);
+                    }}
+
             }
         });
         holder.ioc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (itemClickListener!=null)
-                    itemClickListener.onItemClick(listPosition,true);
-                if (listPosition==itemList.size()-1){
-                    holder.progressBar2.setProgress(100);
-                }
+                if (itemClickListener!=null){
+                    if(ans.equals("c")) {holder.ioc.setBackgroundColor(Color.GREEN);
+                        itemClickListener.onItemClick(listPosition,true,true);}
+                    else {
+                        holder.ioc.setBackgroundColor(Color.RED);
+                        itemClickListener.onItemClick(listPosition,true,false);
+                    }}
+
             }
         });
         holder.iod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (itemClickListener!=null)
-                    itemClickListener.onItemClick(listPosition,true);
-                if (listPosition==itemList.size()-1){
-                    holder.progressBar2.setProgress(100);
-                }
+                if (itemClickListener!=null){
+                    if(ans.equals("a")) {holder.iod.setBackgroundColor(Color.GREEN);
+                        itemClickListener.onItemClick(listPosition,true,true);}
+                    else {
+                        holder.iod.setBackgroundColor(Color.RED);
+                        itemClickListener.onItemClick(listPosition,true,false);
+                    }}
+
             }
         });
 
     }
 
     private void initLayoutOne(ViewHolderOne holder, int listPosition) {
-        holder.progressBar1.setProgress((listPosition)*10);
-        holder.c1qno.setText(String.valueOf(listPosition+1));
+
+
         String question=itemList.get(listPosition).getQuestion();
        String [] arr=question.split("@",3);
         holder.question.setText(arr[0]);
@@ -204,45 +224,66 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         holder.ob.setText(itemList.get(listPosition).getB());
         holder.oc.setText(itemList.get(listPosition).getC());
         holder.od.setText(itemList.get(listPosition).getD());
+        String ans=itemList.get(listPosition).getAnswer();
         holder.oa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (itemClickListener!=null)
-                    itemClickListener.onItemClick(listPosition,true);
-                if (listPosition==itemList.size()-1){
-                    holder.progressBar1.setProgress(100);
+                if (itemClickListener!=null){
+                    if(ans.equals("a")) {holder.oa.setBackgroundColor(Color.GREEN);
+                        itemClickListener.onItemClick(listPosition,true,true);}
+                    else {
+                        holder.oa.setBackgroundColor(Color.RED);
+                        itemClickListener.onItemClick(listPosition,true,false);
+                    }
+
                 }
+
             }
         });
         holder.ob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (itemClickListener!=null)
-                    itemClickListener.onItemClick(listPosition,true);
-                if (listPosition==itemList.size()-1){
-                    holder.progressBar1.setProgress(100);
+                {
+                    if(ans.equals("b")) {holder.ob.setBackgroundColor(Color.GREEN);
+                        itemClickListener.onItemClick(listPosition,true,true);}
+                    else {
+                        holder.ob.setBackgroundColor(Color.RED);
+                        itemClickListener.onItemClick(listPosition,true,false);
+                    }
                 }
+
             }
         });
         holder.oc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (itemClickListener!=null)
-                    itemClickListener.onItemClick(listPosition,true);
-                if (listPosition==itemList.size()-1){
-                    holder.progressBar1.setProgress(100);
+                {
+                    if(ans.equals("c")) {holder.oc.setBackgroundColor(Color.GREEN);
+                        itemClickListener.onItemClick(listPosition,true,true);}
+                    else {
+                        holder.oc.setBackgroundColor(Color.RED);
+                        itemClickListener.onItemClick(listPosition,true,false);
+                    }
                 }
+
             }
         });
         holder.od.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (itemClickListener!=null)
-                    itemClickListener.onItemClick(listPosition,true);
-                if (listPosition==itemList.size()-1){
-                    holder.progressBar1.setProgress(100);
+                {
+                    if(ans.equals("d")) {holder.od.setBackgroundColor(Color.GREEN);
+                        itemClickListener.onItemClick(listPosition,true,true);}
+                    else {
+                        holder.od.setBackgroundColor(Color.RED);
+                        itemClickListener.onItemClick(listPosition,true,false);
+                    }
                 }
+
             }
         });
     }
@@ -252,8 +293,6 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     // Static inner class to initialize the views of rows
     static class ViewHolderOne extends RecyclerView.ViewHolder {
         public TextView question,oa,ob,oc,od,c1q2,c1q3;
-        public CircularProgressIndicator progressBar1;
-        public TextView c1qno;
 
         public ViewHolderOne(View itemView) {
             super(itemView);
@@ -264,16 +303,14 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             od = (TextView) itemView.findViewById(R.id.c1d);
             c1q2=itemView.findViewById(R.id.c1qb);
             c1q3=itemView.findViewById(R.id.c1qc);
-            progressBar1=itemView.findViewById(R.id.c1p);
-            c1qno=itemView.findViewById(R.id.c1qno);
+
 
         }
     }
     static class ViewHolderTwo extends RecyclerView.ViewHolder {
         public TextView iquestion,c2qb,c2qc;
         ImageView ioa,iob,ioc,iod;
-        public CircularProgressIndicator progressBar2;
-        public TextView c2qno;
+
 
         public ViewHolderTwo(View itemView) {
             super(itemView);
@@ -284,16 +321,14 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             iod = (ImageView) itemView.findViewById(R.id.c2div);
             c2qb=itemView.findViewById(R.id.c2qb);
             c2qc=itemView.findViewById(R.id.c2qc);
-            progressBar2=itemView.findViewById(R.id.c2p);
-            c2qno=itemView.findViewById(R.id.c2qno);
+
 
         }
     }
 
     static class ViewHolderThree extends RecyclerView.ViewHolder {
         public TextView tfquestion,tfa,tfb,c3qb,c3qc;
-        public CircularProgressIndicator progressBar3;
-        public TextView c3qno;
+
         public ViewHolderThree(View itemView) {
             super(itemView);
             tfquestion=(TextView)itemView.findViewById(R.id.c3q);
@@ -301,8 +336,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             tfb = (TextView) itemView.findViewById(R.id.c3b);
             c3qb=itemView.findViewById(R.id.c3qb);
             c3qc=itemView.findViewById(R.id.c3qc);
-            progressBar3=itemView.findViewById(R.id.c3p);
-            c3qno=itemView.findViewById(R.id.c3qno);
+
         }
     }
 }
